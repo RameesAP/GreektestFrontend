@@ -1,28 +1,78 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import img from "../assets/react.svg";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
 const Nav = () => {
   // State to manage dropdown visibility
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [searchMovies, setSearchMovies] = useState();
+  // const [error, setError] = useState("");
+  // const [loading, setLoading] = useState(true);
+
+  // const [searchName, setsearchName] = useState("");
+
+  // useEffect(() => {
+  //   const fetchMovies = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "https://greektestbackend.onrender.com/api/movieList",
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //           },
+  //           body: JSON.stringify({
+  //             title: searchName,
+  //             // category: "movies",
+  //             // language: "kannada",
+  //             // genre: "all",
+  //             // sort: "voting",
+  //           }),
+  //         }
+  //       );
+
+  //       if (!response.ok) {
+  //         throw new Error(`Error: ${response.statusText}`);
+  //       }
+
+  //       const data = await response.json();
+  //       console.log("Movies:", data);
+  //       setSearchMovies(data.result);
+  //     } catch (error) {
+  //       setError("Failed to fetch movies");
+  //       console.error("Error fetching movie data:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchMovies();
+  // }, []);
+
+  // const getSearchedData = () =>{
+
+  // }
 
   // Function to toggle dropdown
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  // if (loading) return <div className="text-center mt-8">Loading...</div>;
+  // if (error)
+  //   return <div className="text-center mt-8 text-red-500">{error}</div>;
+
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a
-          href="/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
-        >
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src={img} className="h-8" alt="Flowbite Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             MoviesWeb
           </span>
         </a>
+
         <button
           type="button"
           className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
@@ -46,8 +96,10 @@ const Nav = () => {
           </svg>
         </button>
 
+  
+
         {/* Main navigation links */}
-        <div className="hidden w-full md:block md:w-auto">
+        <div className="hidden w-full md:block md:w-auto ">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
               <button
